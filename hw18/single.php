@@ -13,7 +13,7 @@ get_header();
                     <?php the_post_thumbnail(); ?>
                     <h2><?php the_title(); ?></h2>
                     <?php the_content(); ?>
-                    <a class="button" href="<?php the_permalink(); ?>"> Continue Reading </a>
+
                 </article>
             <?php endwhile;
 

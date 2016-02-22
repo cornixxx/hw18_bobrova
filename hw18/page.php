@@ -1,26 +1,37 @@
 <?php
 
-get_header();
+get_header();  ?>
 
-if (have_posts()):
-    while (have_posts()): the_post(); ?>
+    <div class="content-column">
 
-        <article class="post page">
-            <div class="column-container clearfix">
-                <div class="title-column">
-                    <h2><?php the_title(); ?> </h2>
-                </div>
-                <div class="text-column">
-                    <?php the_content(); ?>
-                </div>
-            </div>
-        </article>
-    <?php endwhile;
+        <?php
+        if (have_posts()):
+            while (have_posts()): the_post(); ?>
 
-else:
-    echo '<p> No content found </p>';
+                <article class="post page">
+                    <div class="column-container clearfix">
+                        <div class="title-column">
+                            <h2><?php the_title(); ?> </h2>
+                        </div>
+                        <div class="text-column">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+                </article>
+            <?php endwhile;
 
-endif;
+        else:
+            echo '<p> No content found </p>';
+
+        endif;
+
+        ?>
+
+    </div>
+
+<?php
+
+get_sidebar();
 
 get_footer();
 
