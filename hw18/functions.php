@@ -9,13 +9,8 @@ function myWordPress_resources() {
 }
 add_action('wp_enqueue_scripts', 'myWordPress_resources');
 
-/* Отключаем админ панель для всех пользователей. */
+//don't show admin-bar
 show_admin_bar(false);
-
-//Navigation Menu
-register_nav_menus(array(
-    'primary'=> __('Primary Menu'),
-));
 
 
 //Class for next, prev page
@@ -29,4 +24,18 @@ function posts_link_attributes_2() {
     return 'class="prev-post"';
 }
 
-//img before title
+
+//Theme setup
+function wordPress_setup() {
+
+    //Navigation Menus
+    register_nav_menus(array(
+        'primary'=> __('Primary Menu'),
+        'footer'=> __('Footer Menu'),
+    ));
+
+    //featured image
+    add_theme_support('post-thumbnails');
+}
+
+add_action ('after_setup_theme','wordPress_setup');
